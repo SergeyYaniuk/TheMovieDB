@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
+
+    <!-- FavoritesMovies fragment -->
+    <string name="star">&#x2605;</string>
+    <string name="movie_cover">Movie Cover</string>
+
+    <!-- SearchMovies fragment -->
+    <string name="search_hint">Search movie</string>
 </resources>
