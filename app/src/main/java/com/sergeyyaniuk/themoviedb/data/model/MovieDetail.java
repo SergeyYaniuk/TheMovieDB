@@ -1,85 +1,143 @@
 package com.sergeyyaniuk.themoviedb.data.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.Objects;
 
+@Entity(tableName = "movie_detail")
 public class MovieDetail {
 
+    @ColumnInfo(name = "adult")
     @SerializedName("adult")
     @Expose
     private boolean adult;
+
+    @ColumnInfo(name = "backdrop_path")
     @SerializedName("backdrop_path")
     @Expose
     private String backdropPath;
+
+    @Ignore
     @SerializedName("belongs_to_collection")
     @Expose
     private BelongsToCollection belongsToCollection;
+
+    @ColumnInfo(name = "budget")
     @SerializedName("budget")
     @Expose
     private int budget;
+
+    @ColumnInfo(name = "genres")
     @SerializedName("genres")
     @Expose
     private List<Genre> genres = null;
+
+    @ColumnInfo(name = "homepage")
     @SerializedName("homepage")
     @Expose
     private String homepage;
+
+    @NonNull
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     @SerializedName("id")
     @Expose
     private int id;
+
+    @ColumnInfo(name = "imdb_id")
     @SerializedName("imdb_id")
     @Expose
     private String imdbId;
+
+    @ColumnInfo(name = "original_language")
     @SerializedName("original_language")
     @Expose
     private String originalLanguage;
+
+    @ColumnInfo(name = "original_title")
     @SerializedName("original_title")
     @Expose
     private String originalTitle;
+
+    @ColumnInfo(name = "overview")
     @SerializedName("overview")
     @Expose
     private String overview;
+
+    @ColumnInfo(name = "popularity")
     @SerializedName("popularity")
     @Expose
     private double popularity;
+
+    @ColumnInfo(name = "poster_path")
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
+
+    @Ignore
     @SerializedName("production_companies")
     @Expose
     private List<ProductionCompany> productionCompanies = null;
+
+    @Ignore
     @SerializedName("production_countries")
     @Expose
     private List<ProductionCountry> productionCountries = null;
+
+    @ColumnInfo(name = "release_date")
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+
+    @ColumnInfo(name = "revenue")
     @SerializedName("revenue")
     @Expose
     private int revenue;
+
+    @ColumnInfo(name = "runtime")
     @SerializedName("runtime")
     @Expose
     private int runtime;
+
+    @Ignore
     @SerializedName("spoken_languages")
     @Expose
     private List<SpokenLanguage> spokenLanguages = null;
+
+    @ColumnInfo(name = "status")
     @SerializedName("status")
     @Expose
     private String status;
+
+    @ColumnInfo(name = "tagline")
     @SerializedName("tagline")
     @Expose
     private String tagline;
+
+    @ColumnInfo(name = "title")
     @SerializedName("title")
     @Expose
     private String title;
+
+    @ColumnInfo(name = "video")
     @SerializedName("video")
     @Expose
     private boolean video;
+
+    @ColumnInfo(name = "vote_average")
     @SerializedName("vote_average")
     @Expose
     private double voteAverage;
+
+    @ColumnInfo(name = "vote_count")
     @SerializedName("vote_count")
     @Expose
     private int voteCount;
