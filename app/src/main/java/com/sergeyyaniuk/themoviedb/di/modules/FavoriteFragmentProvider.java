@@ -6,8 +6,8 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
-public abstract class FavoritesFragmentProvider {
+public abstract class FavoriteFragmentProvider {
 
-    @ContributesAndroidInjector
-    abstract FavoriteMoviesFragment provideFavoriteMoviesFragment();
+    @ContributesAndroidInjector(modules = FavoriteFragmentModule.class)
+    abstract FavoriteMoviesFragment favoriteMoviesFragment();
 }

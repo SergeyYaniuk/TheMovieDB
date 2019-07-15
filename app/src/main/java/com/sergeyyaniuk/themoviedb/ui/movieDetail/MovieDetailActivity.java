@@ -1,12 +1,11 @@
 package com.sergeyyaniuk.themoviedb.ui.movieDetail;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.sergeyyaniuk.themoviedb.R;
+import com.sergeyyaniuk.themoviedb.ui.base.BaseActivity;
 
-public class MovieDetailActivity extends AppCompatActivity {
+public class MovieDetailActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

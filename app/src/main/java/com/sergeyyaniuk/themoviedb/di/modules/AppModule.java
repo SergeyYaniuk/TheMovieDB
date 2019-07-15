@@ -1,15 +1,15 @@
 package com.sergeyyaniuk.themoviedb.di.modules;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.room.Room;
 
+import com.sergeyyaniuk.themoviedb.TheMovieDBApp;
 import com.sergeyyaniuk.themoviedb.data.MoviesDataSource;
 import com.sergeyyaniuk.themoviedb.data.MoviesRepository;
 import com.sergeyyaniuk.themoviedb.data.local.AppDatabase;
-import com.sergeyyaniuk.themoviedb.data.local.DatabaseDataSource;
-import com.sergeyyaniuk.themoviedb.data.local.DatabaseHelper;
+import com.sergeyyaniuk.themoviedb.data.local.LocalDataSource;
+import com.sergeyyaniuk.themoviedb.data.local.LocalHelper;
 import com.sergeyyaniuk.themoviedb.data.remote.ApiEndPoints;
 import com.sergeyyaniuk.themoviedb.data.remote.ApiHelper;
 import com.sergeyyaniuk.themoviedb.data.remote.RemoteDataSource;
@@ -45,21 +45,20 @@ public class AppModule {
 
     @Provides
     @Singleton
-    Context provideContext(Application application) {
+    Context provideContext(TheMovieDBApp application) {
         return application;
     }
 
     @Provides
     @Singleton
     AppDatabase provideAppDatabase(@DatabaseInfo String dbName, Context context) {
-        return Room.databaseBuilder(context, AppDatabase.class, dbName).fallbackToDestructiveMigration()
-                .build();
+        return Room.databaseBuilder(context, AppDatabase.class, dbName).build();
     }
 
     @Provides
     @Singleton
-    DatabaseDataSource provideDatabaseDataSource(DatabaseHelper databaseHelper){
-        return databaseHelper;
+    LocalDataSource provideLocalDataSource(LocalHelper localHelper){
+        return localHelper;
     }
 
     @Provides

@@ -7,14 +7,14 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
-public abstract class ActivityModule {
+public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {
-            FavoritesFragmentProvider.class,
+            FavoriteFragmentProvider.class,
             SearchFragmentProvider.class})
     abstract MovieListActivity bindMovieList();
 
     @ContributesAndroidInjector(modules = {
-            DetailFragmentProvider.class})
+            MovieDetailFragmentProvider.class})
     abstract MovieDetailActivity bindMovieDetail();
 }

@@ -12,12 +12,12 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 
 @Singleton
-public class DatabaseHelper implements DatabaseDataSource {
+public class LocalHelper implements LocalDataSource {
 
     private final AppDatabase database;
 
     @Inject
-    public DatabaseHelper(AppDatabase database) {
+    public LocalHelper(AppDatabase database) {
         this.database = database;
     }
 

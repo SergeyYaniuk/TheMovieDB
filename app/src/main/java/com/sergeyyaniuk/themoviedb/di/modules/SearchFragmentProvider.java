@@ -8,6 +8,6 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class SearchFragmentProvider {
 
-    @ContributesAndroidInjector
-    abstract SearchMoviesFragment provideSearchMoviesFragment();
+    @ContributesAndroidInjector(modules = SearchFragmentModule.class)
+    abstract SearchMoviesFragment searchMoviesFragment();
 }

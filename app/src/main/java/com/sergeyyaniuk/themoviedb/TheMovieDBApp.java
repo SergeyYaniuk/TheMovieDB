@@ -1,29 +1,30 @@
 package com.sergeyyaniuk.themoviedb;
 
 
-import android.app.Activity;
-import android.app.Application;
-import javax.inject.Inject;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
+import com.sergeyyaniuk.themoviedb.di.DaggerApplicationComponent;
 
-public class TheMovieDBApp extends Application implements HasActivityInjector {
+import dagger.android.AndroidInjector;
+import dagger.android.DaggerApplication;
 
-    @Inject
-    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
+public class TheMovieDBApp extends DaggerApplication {
 
-    @Override
-    public DispatchingAndroidInjector<Activity> activityInjector() {
-        return activityDispatchingAndroidInjector;
-    }
+
+    private static TheMovieDBApp instance;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-//        DaggerAppComponent.builder()
-//                .application(this)
-//                .build()
-//                .inject(this);
+        instance = this;
+    }
+
+    public static synchronized TheMovieDBApp getInstance() {
+        return instance;
+    }
+
+    @Override
+    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+        return DaggerApplicationComponent.builder().create(this);
     }
 }
+

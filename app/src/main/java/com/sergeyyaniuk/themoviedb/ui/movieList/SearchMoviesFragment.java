@@ -3,18 +3,25 @@ package com.sergeyyaniuk.themoviedb.ui.movieList;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.sergeyyaniuk.themoviedb.R;
+import com.sergeyyaniuk.themoviedb.ui.base.BaseFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class SearchMoviesFragment extends Fragment {
+import javax.inject.Inject;
+
+
+public class SearchMoviesFragment extends BaseFragment<MovieListViewModel> {
+
+    @Inject
+    ViewModelProvider.Factory factory;
+
+    MovieListViewModel viewModel;
 
 
     public SearchMoviesFragment() {
@@ -29,4 +36,9 @@ public class SearchMoviesFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_search_movies, container, false);
     }
 
+    @Override
+    public MovieListViewModel getViewModel() {
+        viewModel = ViewModelProviders.of(this, factory).get(MovieListViewModel.class);
+        return viewModel;
+    }
 }

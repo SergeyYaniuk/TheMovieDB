@@ -26,4 +26,9 @@
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
+    <!-- Theme for toolbar title -->
+    <style name="ToolbarTextAppearance">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
 </resources>

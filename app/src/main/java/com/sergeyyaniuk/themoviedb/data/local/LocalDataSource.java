@@ -7,7 +7,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 
-public interface DatabaseDataSource {
+public interface LocalDataSource {
 
     Observable<List<Movie>> getPopularMovies();
 

@@ -6,8 +6,8 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
-public abstract class DetailFragmentProvider {
+public abstract class MovieDetailFragmentProvider {
 
-    @ContributesAndroidInjector
-    abstract MovieDetailFragment provideMovieDetailFragment();
+    @ContributesAndroidInjector(modules = MovieDetailFragmentModule.class)
+    abstract MovieDetailFragment movieDetailFragment();
 }
