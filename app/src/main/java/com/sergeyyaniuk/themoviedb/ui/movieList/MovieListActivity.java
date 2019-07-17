@@ -1,47 +1,76 @@
 package com.sergeyyaniuk.themoviedb.ui.movieList;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.tabs.TabLayout;
 import com.sergeyyaniuk.themoviedb.R;
 import com.sergeyyaniuk.themoviedb.ui.base.BaseActivity;
+import com.sergeyyaniuk.themoviedb.ui.movieDetail.MovieDetailActivity;
 
 
-public class MovieListActivity extends BaseActivity{
+public class MovieListActivity extends BaseActivity implements
+        PopularMoviesFragment.PopularFragmentListener,
+        SearchMoviesFragment.SearchFragmentListener {
 
-    Toolbar toolbar;
     ViewPager viewPager;
     TabLayout tabLayout;
+
+    boolean isNetwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isNetwork = isNetworkConnected();
         setContentView(R.layout.activity_movie_list);
         setupUi();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!isNetwork){
+            showToast(getResources().getString(R.string.offline_mode));
+        }
+    }
+
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        if (fragment instanceof PopularMoviesFragment) {
+            PopularMoviesFragment popularMoviesFragment = (PopularMoviesFragment) fragment;
+            popularMoviesFragment.setPopularFragListener(this);
+        } else if (fragment instanceof SearchMoviesFragment){
+            SearchMoviesFragment searchMoviesFragment = (SearchMoviesFragment) fragment;
+            searchMoviesFragment.setSearchFragListener(this);
+        }
     }
 
     private void setupUi(){
-        toolbar = findViewById(R.id.toolbar);
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabs);
-        toolbar.setTitle(R.string.movies);
-        toolbar.setTitleTextAppearance(this, R.style.ToolbarTextAppearance);
-        setSupportActionBar(toolbar);
         SectionsPagerAdapter pagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @Override
+    public void onPopularClicked(String movieId) {
+        startActivity(new Intent(this, MovieDetailActivity.class));
+    }
+
+    @Override
+    public void onSearchClicked(String movieId) {
+        startActivity(new Intent(this, MovieDetailActivity.class));
+    }
+
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
         public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+            super(fm);
         }
 
         @Override
@@ -53,9 +82,9 @@ public class MovieListActivity extends BaseActivity{
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FavoriteMoviesFragment();
+                    return PopularMoviesFragment.newInstance(isNetwork);
                 case 1:
-                    return new SearchMoviesFragment();
+                    return SearchMoviesFragment.newInstance(isNetwork);
             }
             return null;
         }
@@ -64,7 +93,7 @@ public class MovieListActivity extends BaseActivity{
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return getResources().getText(R.string.favorites);
+                    return getResources().getText(R.string.popular);
                 case 1:
                     return getResources().getText(R.string.search);
             }

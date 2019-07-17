@@ -1,9 +1,9 @@
 package com.sergeyyaniuk.themoviedb.di.modules;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 
-import androidx.room.Room;
-
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.sergeyyaniuk.themoviedb.TheMovieDBApp;
 import com.sergeyyaniuk.themoviedb.data.MoviesDataSource;
 import com.sergeyyaniuk.themoviedb.data.MoviesRepository;
@@ -30,7 +30,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module

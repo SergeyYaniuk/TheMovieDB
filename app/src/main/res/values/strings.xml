@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">TheMovieDB</string>
 
+    <!-- Base activity -->
+    <string name="offline_mode">Offline mode</string>
+
     <!-- MovieListActivity -->
     <string name="movies">MOVIES</string>
-    <string name="favorites">FAVORITES</string>
+    <string name="popular">POPULAR</string>
     <string name="search">SEARCH</string>
+    <string name="error">Oops, something went wrong!!!</string>
 
     <!-- FavoritesMovies fragment -->
     <string name="star">&#x2605;</string>

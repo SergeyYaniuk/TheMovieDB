@@ -42,11 +42,22 @@ public class LocalHelper implements LocalDataSource {
     }
 
     @Override
-    public Observable<Boolean> saveMovies(final List<Movie> movies){
+    public Observable<Boolean> saveMovie(final Movie movie){
         return Observable.fromCallable(new Callable<Boolean>() {
             @Override
             public Boolean call() throws Exception {
-                database.movieDao().insertAllMovies(movies);
+                database.movieDao().insertMovie(movie);
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> saveMovieList(List<Movie> movies) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                database.movieDao().insertMovieList(movies);
                 return true;
             }
         });
@@ -58,6 +69,17 @@ public class LocalHelper implements LocalDataSource {
             @Override
             public MovieDetail call() throws Exception {
                 return database.movieDetailDao().getMovie(movieId);
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> saveDetailMovie(MovieDetail movieDetail) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                database.movieDetailDao().insertMovie(movieDetail);
+                return true;
             }
         });
     }

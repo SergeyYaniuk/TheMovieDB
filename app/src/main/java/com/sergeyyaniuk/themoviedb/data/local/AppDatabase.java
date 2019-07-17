@@ -1,7 +1,7 @@
 package com.sergeyyaniuk.themoviedb.data.local;
 
-import androidx.room.Database;
-import androidx.room.RoomDatabase;
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.RoomDatabase;
 
 import com.sergeyyaniuk.themoviedb.data.local.dao.MovieDao;
 import com.sergeyyaniuk.themoviedb.data.local.dao.MovieDetailDao;

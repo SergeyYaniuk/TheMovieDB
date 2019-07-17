@@ -1,6 +1,5 @@
 package com.sergeyyaniuk.themoviedb;
 
-
 import com.sergeyyaniuk.themoviedb.di.DaggerApplicationComponent;
 
 import dagger.android.AndroidInjector;

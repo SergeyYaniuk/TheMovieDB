@@ -37,8 +37,18 @@ public class MoviesRepository implements MoviesDataSource {
     }
 
     @Override
-    public Observable<Boolean> saveMoviesLocally(final List<Movie> movies){
-        return localDataSource.saveMovies(movies);
+    public Observable<Boolean> saveMovieLocally(final Movie movie){
+        return localDataSource.saveMovie(movie);
+    }
+
+    @Override
+    public Observable<Boolean> saveMovieListLocally(List<Movie> movies) {
+        return localDataSource.saveMovieList(movies);
+    }
+
+    @Override
+    public Observable<Boolean> saveDetailMovieLocally(MovieDetail movieDetail) {
+        return localDataSource.saveDetailMovie(movieDetail);
     }
 
     @Override

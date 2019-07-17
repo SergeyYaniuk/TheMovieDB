@@ -13,7 +13,11 @@ public interface LocalDataSource {
 
     Observable<List<Movie>> getMoviesByName(String searchString);
 
-    Observable<Boolean> saveMovies(final List<Movie> movies);
+    Observable<Boolean> saveMovie(Movie movie);
+
+    Observable<Boolean> saveMovieList(List<Movie> movies);
 
     Observable<MovieDetail> getDetailMovie(int movieId);
+
+    Observable<Boolean> saveDetailMovie(MovieDetail movieDetail);
 }

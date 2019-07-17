@@ -2,6 +2,7 @@ package com.sergeyyaniuk.themoviedb.ui.movieList;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,26 +18,26 @@ import com.sergeyyaniuk.themoviedb.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchMoviesAdapter extends RecyclerView.Adapter<SearchMoviesAdapter.ViewHolder>{
+public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdapter.ViewHolder>{
 
-    public interface SearchMoviesAdapterListener {
-        void onSearchedClick(String movieId);
+    public interface PopularMoviesAdapterListener {
+        void onPopularClick(String movieId);
     }
 
-    SearchMoviesAdapterListener listener;
+    PopularMoviesAdapterListener listener;
 
-    List<Movie> movies = new ArrayList<>();
-
-    public SearchMoviesAdapter(SearchMoviesAdapterListener listener) {
+    public PopularMoviesAdapter(PopularMoviesAdapterListener listener) {
         this.listener = listener;
     }
+
+    List<Movie> movies = new ArrayList<>();
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from((parent.getContext()))
-                .inflate(R.layout.list_item_search, parent, false);
-        return new SearchMoviesAdapter.ViewHolder(itemView);
+                .inflate(R.layout.list_item_favorites, parent, false);
+        return new PopularMoviesAdapter.ViewHolder(itemView);
     }
 
     @Override
@@ -83,7 +84,7 @@ public class SearchMoviesAdapter extends RecyclerView.Adapter<SearchMoviesAdapte
                 @Override
                 public void onClick(View v) {
                     String movieId = String.valueOf(getItem(getAdapterPosition()).getId());
-                    listener.onSearchedClick(movieId);
+                    listener.onPopularClick(movieId);
                 }
             });
         }

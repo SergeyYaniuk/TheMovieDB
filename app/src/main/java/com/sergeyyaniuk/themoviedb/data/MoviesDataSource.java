@@ -15,7 +15,11 @@ public interface MoviesDataSource {
 
     Observable<List<Movie>> getSearchedMoviesLocally(String searchString);
 
-    Observable<Boolean> saveMoviesLocally(final List<Movie> movies);
+    Observable<Boolean> saveMovieLocally(Movie movie);
+
+    Observable<Boolean> saveMovieListLocally(List<Movie> movies);
+
+    Observable<Boolean> saveDetailMovieLocally(MovieDetail movieDetail);
 
     Observable<MovieDetail> getDetailMovieLocally(int movieId);
 

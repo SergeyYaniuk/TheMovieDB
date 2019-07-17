@@ -10,7 +10,7 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {
-            FavoriteFragmentProvider.class,
+            PopularFragmentProvider.class,
             SearchFragmentProvider.class})
     abstract MovieListActivity bindMovieList();
 

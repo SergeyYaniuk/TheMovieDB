@@ -1,9 +1,8 @@
 package com.sergeyyaniuk.themoviedb.ui.base;
 
 
+import android.arch.lifecycle.ViewModel;
 import android.content.Context;
-
-import androidx.lifecycle.ViewModel;
 
 import dagger.android.support.DaggerFragment;
 

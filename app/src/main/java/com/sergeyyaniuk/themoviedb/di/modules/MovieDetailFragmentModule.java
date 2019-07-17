@@ -1,6 +1,7 @@
 package com.sergeyyaniuk.themoviedb.di.modules;
 
-import androidx.lifecycle.ViewModelProvider;
+
+import android.arch.lifecycle.ViewModelProvider;
 
 import com.sergeyyaniuk.themoviedb.data.MoviesDataSource;
 import com.sergeyyaniuk.themoviedb.ui.movieDetail.MovieDetailViewModel;
