@@ -16,4 +16,9 @@
 
     <!-- SearchMovies fragment -->
     <string name="search_hint">Search movie</string>
+
+    <!-- DetailMovie fragment -->
+    <string name="budget">BUDGET</string>
+    <string name="release_date">RELEASE DATE</string>
+    <string name="revenue">REVENUE</string>
 </resources>

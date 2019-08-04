@@ -6,6 +6,8 @@ import com.sergeyyaniuk.themoviedb.ui.movieList.MovieListActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
+/** Dagger module to inject fragments */
+
 @Module
 public abstract class ActivityBuilder {
 

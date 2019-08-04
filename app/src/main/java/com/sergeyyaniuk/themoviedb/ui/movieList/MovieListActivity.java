@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.sergeyyaniuk.themoviedb.R;
 import com.sergeyyaniuk.themoviedb.ui.base.BaseActivity;
 import com.sergeyyaniuk.themoviedb.ui.movieDetail.MovieDetailActivity;
+import com.sergeyyaniuk.themoviedb.utils.Constants;
 
 
 public class MovieListActivity extends BaseActivity implements
@@ -59,13 +60,17 @@ public class MovieListActivity extends BaseActivity implements
     }
 
     @Override
-    public void onPopularClicked(String movieId) {
-        startActivity(new Intent(this, MovieDetailActivity.class));
+    public void onPopularClicked(String movieId, String movieTitle) {
+        startActivity(new Intent(this, MovieDetailActivity.class)
+                .putExtra(Constants.MOVIE_ID, movieId)
+                .putExtra(Constants.MOVIE_TITLE, movieTitle));
     }
 
     @Override
-    public void onSearchClicked(String movieId) {
-        startActivity(new Intent(this, MovieDetailActivity.class));
+    public void onSearchClicked(String movieId, String movieTitle) {
+        startActivity(new Intent(this, MovieDetailActivity.class)
+                .putExtra(Constants.MOVIE_ID, movieId)
+                .putExtra(Constants.MOVIE_TITLE, movieTitle));
     }
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {

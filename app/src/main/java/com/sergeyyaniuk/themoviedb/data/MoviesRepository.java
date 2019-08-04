@@ -13,6 +13,11 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
+
+/**
+ * Concrete implementation to load all data.
+ */
+
 @Singleton
 public class MoviesRepository implements MoviesDataSource {
 

@@ -30,7 +30,7 @@ import javax.inject.Inject;
 public class SearchMoviesFragment extends BaseFragment<SearchMoviesViewModel> {
 
     public interface SearchFragmentListener{
-        void onSearchClicked(String movieId);
+        void onSearchClicked(String movieId, String movieTitle);
     }
     
     public static final String NETWORK_STATUS = "isNetwork";
@@ -146,8 +146,8 @@ public class SearchMoviesFragment extends BaseFragment<SearchMoviesViewModel> {
 
     SearchMoviesAdapter.SearchMoviesAdapterListener adapterListener = new SearchMoviesAdapter.SearchMoviesAdapterListener() {
         @Override
-        public void onSearchedClick(String movieId) {
-            listener.onSearchClicked(movieId);
+        public void onSearchedClick(String movieId, String movieTitle) {
+            listener.onSearchClicked(movieId, movieTitle);
         }
     };
 }

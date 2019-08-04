@@ -10,6 +10,8 @@ import com.sergeyyaniuk.themoviedb.utils.ViewModelFactory;
 import dagger.Module;
 import dagger.Provides;
 
+/** Module for injecting SearchMovies fragment */
+
 @Module
 public class SearchFragmentModule {
 

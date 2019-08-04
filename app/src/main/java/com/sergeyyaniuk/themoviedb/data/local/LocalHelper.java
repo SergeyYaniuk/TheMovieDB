@@ -11,6 +11,10 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
+/**
+ * Concrete implementation of a database requests.
+ */
+
 @Singleton
 public class LocalHelper implements LocalDataSource {
 

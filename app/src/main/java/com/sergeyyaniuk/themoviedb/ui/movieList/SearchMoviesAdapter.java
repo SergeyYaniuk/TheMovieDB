@@ -20,7 +20,7 @@ import java.util.List;
 public class SearchMoviesAdapter extends RecyclerView.Adapter<SearchMoviesAdapter.ViewHolder>{
 
     public interface SearchMoviesAdapterListener {
-        void onSearchedClick(String movieId);
+        void onSearchedClick(String movieId, String movieTitle);
     }
 
     SearchMoviesAdapterListener listener;
@@ -83,7 +83,8 @@ public class SearchMoviesAdapter extends RecyclerView.Adapter<SearchMoviesAdapte
                 @Override
                 public void onClick(View v) {
                     String movieId = String.valueOf(getItem(getAdapterPosition()).getId());
-                    listener.onSearchedClick(movieId);
+                    String movieTitle = getItem(getAdapterPosition()).getTitle();
+                    listener.onSearchedClick(movieId, movieTitle);
                 }
             });
         }

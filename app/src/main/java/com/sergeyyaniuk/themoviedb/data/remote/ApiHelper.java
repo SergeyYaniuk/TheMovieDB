@@ -8,6 +8,10 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
+/**
+ * Implementation of the data source that requests data from network.
+ */
+
 @Singleton
 public class ApiHelper implements RemoteDataSource {
 

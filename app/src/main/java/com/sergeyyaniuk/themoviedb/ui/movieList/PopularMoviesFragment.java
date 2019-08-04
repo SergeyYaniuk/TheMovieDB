@@ -26,7 +26,7 @@ import javax.inject.Inject;
 public class PopularMoviesFragment extends BaseFragment<PopularMoviesViewModel>{
 
     public interface PopularFragmentListener{
-        void onPopularClicked(String movieId);
+        void onPopularClicked(String movieId, String movieTitle);
     }
 
     public static final String NETWORK_STATUS = "isNetwork";
@@ -125,8 +125,8 @@ public class PopularMoviesFragment extends BaseFragment<PopularMoviesViewModel>{
 
     PopularMoviesAdapter.PopularMoviesAdapterListener adapterListener = new PopularMoviesAdapter.PopularMoviesAdapterListener() {
         @Override
-        public void onPopularClick(String movieId) {
-            listener.onPopularClicked(movieId);
+        public void onPopularClick(String movieId, String title) {
+            listener.onPopularClicked(movieId, title);
         }
     };
 }

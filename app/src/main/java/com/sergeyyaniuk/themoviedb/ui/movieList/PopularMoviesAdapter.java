@@ -21,7 +21,7 @@ import java.util.List;
 public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdapter.ViewHolder>{
 
     public interface PopularMoviesAdapterListener {
-        void onPopularClick(String movieId);
+        void onPopularClick(String movieId, String title);
     }
 
     PopularMoviesAdapterListener listener;
@@ -84,7 +84,8 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
                 @Override
                 public void onClick(View v) {
                     String movieId = String.valueOf(getItem(getAdapterPosition()).getId());
-                    listener.onPopularClick(movieId);
+                    String movieTitle = getItem(getAdapterPosition()).getTitle();
+                    listener.onPopularClick(movieId, movieTitle);
                 }
             });
         }
